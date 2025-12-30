@@ -1,0 +1,365 @@
+:root, input {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 10px 10px;
+}
+
+.errorParagraphs {
+  color: maroon;
+  font-size: small;
+  font-weight: 500;
+  border-radius: 3px;
+  width: fit-content;
+  margin-top: -15px;
+  margin-bottom: 10px;
+}
+
+.network-error-notification, .page-not-found, #invalid-contact-div {
+  text-align: center;
+}
+
+#network-error-img, .img-for-404, #invalid-contact-div img {
+  width: 50vw;
+  max-width: 500px;
+  display: block;
+  margin: 10px auto;
+}
+
+#spinner {
+  display: block;
+  margin: 20px auto;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e5e7eb;      /* light gray */
+  border-top: 4px solid orange;  /* blue */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slideFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.notification-modal, .confirmation-modal {
+  position: fixed;
+  z-index: 2;
+  color: white;
+  width: 400px;
+  height: fit-content;
+  top: 5vh;
+  animation: slideFromTop 0.3s ease-out forwards;
+  padding: 20px;
+  left: calc((100% - 400px) / 2);
+  text-align: center;
+  border-radius: 5px;
+  box-shadow:
+    1px 1px 5px rgba(0,0,0,0.2),
+    -1px -1px 5px rgba(255,255,255,0.7); 
+}
+
+.confirmation-modal {
+  background-color: #4A5D23;
+}
+
+.modal-confirmation-buttons {
+  margin: 20px auto;  
+  background-color: #006400;
+  color: white;
+  box-shadow:
+    1px 1px 1px rgba(0,0,0,0.2),
+    0px 0px 2px rgba(255,255,255,0.7); 
+}
+
+.modal-confirmation-buttons {
+  margin-bottom: 0;
+}
+
+.modal-cancel-button {
+  background-color: #1B4D3E;
+}
+#form-section {
+  margin: 20px auto;
+  width: 65vw;
+  display: block;
+}  
+
+input {
+  margin-bottom: 20px;
+  height: 30px;
+  width: 80%;
+  padding-left: 5px;
+  font-size: 1em;
+}
+
+.input-labels {
+  font-weight: bold;
+}
+
+#form-button, #form-reset-button, .contact-buttons, .modal-confirmation-buttons, #user-details-section button, .page-not-found button, #invalid-contact-div button {
+  width: 100px;
+  padding: 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+#form-button, .contact-buttons:hover, #user-details-section button, .page-not-found button, #invalid-contact-div button {
+  background-color: black;
+  color: white;
+  font-weight: bolder;
+}
+
+#form-button:hover, .contact-buttons:hover, .modal-confirmation-buttons:hover, #user-details-section button:hover, .page-not-found button:hover, #invalid-contact-div button:hover, .card-view-div:hover {
+  background-color: darkorange;
+  color: white;
+  font-weight: bolder;
+}
+
+#form-reset-button:hover, .card-button-div:hover {
+  background-color: aliceblue;
+}
+
+.card-button-div:hover {
+  box-shadow:
+    1px 1px 1px rgba(0,0,0,0.2),
+    0px 0px 2px rgba(255,255,255,0.7); 
+}
+#form-and-contact-list-div {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+}
+
+table {
+  width: 70vw;
+  margin: 0 auto;
+}
+.contacts-table {
+  border-collapse: collapse;
+}
+
+.contacts-table td, .contacts-table th {
+  padding: 10px;
+  text-align: center;
+}
+
+.contact-buttons, .card-view-div {
+  padding: 7px;
+  margin: 2px;
+  background-color: #556B2F;
+  color: white;
+}
+
+thead tr, tbody tr:nth-child(even), .card-id-buttons-row, .card-email-row {
+  background-color: #f9f9f9;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+#user-details-section {
+  display: block;
+  width: 500px;
+  margin: 20px auto;
+  padding: 10px;
+  box-shadow:
+    1px 1px 5px rgba(0,0,0,0.2),
+    -1px -1px 5px rgba(255,255,255,0.7); 
+}
+
+#user-details-section button, #invalid-contact-div button {
+  margin-top: 20px;
+}
+
+#invalid-contact-div, .page-not-found, .network-error-notification {
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+#form-and-contact-list-div {
+  margin-top: 30px;
+}
+
+.card-mobile-version {
+  display: none;
+}
+
+.card-labels {
+  font-weight: bolder;
+  display: inline-block;
+  width: 90px;
+
+}
+
+.id-label {
+  font-weight: bolder;
+}
+
+.card-id-buttons-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-per-contact {
+  margin: 20px auto;
+}
+
+.card-button-div {
+  border-radius: 3px;
+  cursor: pointer;
+  
+}
+
+.card-button-div img {
+  width: 70%;
+  display: block;
+  margin: 5px auto;
+  
+}
+
+.card-buttons-span {
+  display: flex;
+  gap: 10px;
+}
+
+.card-edit-div {
+  background-color: #E5EBF2;
+  width: 30px;
+}
+
+.card-delete-div {
+  background-color: #F9E9E5;
+  width: 30px;
+}
+
+.card-view-div {
+  text-align: center;
+  font-weight: bolder;
+  border-radius: 5px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.card-id-buttons-row, .card-name-row, .card-email-row, .card-contact-row {
+  padding: 10px;
+
+}
+
+.card-per-contact {
+  border: 1px solid #f9f9f9;
+}
+@media (max-width: 732px) {
+  .desktop-table-version {
+    display: none;
+  }
+
+  .card-mobile-version, #form-section {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  #form-section input {
+    width: 90%;
+  }
+
+  #form-and-contact-list-div {
+    margin: 0 auto;
+    width: 100vw;
+  }
+
+  body {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  
+}
+
+@media (max-width: 421px) {
+  
+  .confirmation-modal, .notification-modal {
+    width: 90vw;
+    left: calc((100% - 90vw) / 2);
+  }
+}
+
+@media (max-width: 526px) {
+  #user-details-section {
+    width: 90%;
+  }
+}
+
+@media (max-width: 987px) {
+  #invalid-contact-div img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 972px) {
+  .page-not-found img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 952px) {
+  #network-error-img {
+    width: 100%;
+  }
+}
+
+@media (min-width: 930px) and (max-width: 1245px) {
+  .table-buttons-cell {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 728px) {
+  #form-and-contact-list-div {
+    margin-top: 30px;
+  }
+}
+
+@media (min-width: 1120px) {
+  #form-section input {
+    width: 600px;
+  }
+}
