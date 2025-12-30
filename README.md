@@ -22,7 +22,7 @@ As shown from the User Interface section above.
 
 <h3>2. Create</h3>
 
-The form has on each input tags and upon the submission of the form.
+The form has validations on each input tag and upon the submission of the form.
 
 <img src="/images/4-add-in-new-contact.png" />
 
@@ -54,11 +54,22 @@ And when they click on Delete and the contact is successfully deleted, a confirm
 
 <h2>Others</h2>
 
+<h4>Errors</h4>
 The app also handles errors (with a modal as well), page not found, network error, and when a contact id is invalid.
 
+<h4>Form Validation</h4>
+The app uses regex to test the user inputs.
+
+And if the contact number or email is already in use, the user won't be able to add this in. 
+
+<h4>Single Contact View</h4>
 When user clicks on View button on the landing page, they can check out the contact details as follows:
 
 <img src="/images/6-view-contact-details.png" />
+
+When the list is available, the app takes the contact details from it. 
+
+But when the list is unavailable (e.g. due to page refresh), the app fetches the contact details by id from the Java-backend api.
 
 Thank you!
 
