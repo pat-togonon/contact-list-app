@@ -18,13 +18,13 @@ const App = () => {
 
   return (
     <>
-    <ModalNotification />
-    <ModalConfirmation />
-    <Routes>
-      <Route path="/"  element={<ContactList />} />
-      <Route path="/contact-detail/:id"  element={<UserDetails />} />
-      <Route path="*" element={<PageNotFound />} />
-    </Routes>
+      <ModalNotification />
+      <ModalConfirmation />
+      <Routes>
+        <Route path="/"  element={<ContactList />} />
+        <Route path="/contact-detail/:id"  element={<UserDetails />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
     </>
   )
 

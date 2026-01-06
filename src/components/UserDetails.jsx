@@ -1,8 +1,8 @@
 import { useNavigate, useParams } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { fetchContactById, getSelectedContactFromList } from "../reducer/contactReducer"
-import NetworkError from "./NetworkError"
+import Error from "./Error"
 import Spinner from "./Spinner"
 import InvalidContactPage from "./InvalidContactPage"
 
@@ -24,11 +24,11 @@ const UserDetails = () => {
 
   if (isLoading) return <Spinner />  
 
-  if (error === "Network Error") return <NetworkError error={error} />
+  if (error) return <Error error={error} />
   
-  if (!isLoading && !selectedContact) return <InvalidContactPage id={id} navigate={navigate} />
-
-  
+  if (!isLoading && !selectedContact) {    
+    return <InvalidContactPage id={id} navigate={navigate} />    
+  }  
 
   return (
     <section id="user-details-section">

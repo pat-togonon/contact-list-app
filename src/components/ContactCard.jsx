@@ -9,8 +9,8 @@ const ContactCard = ({ list, handleView, handleUpdate, handleDelete }) => {
         <div key={c.id} className="card-per-contact">
           <div className="card-id-buttons-row"><span><span className="id-label">Id: </span>{c.id}</span>
             <span className="card-buttons-span">
-              <div role="button" onClick={() => handleUpdate(c)} className="card-button-div card-edit-div"><img src="/edit-icon.svg" /></div>
-              <div role="button" onClick={() => handleDelete(c)} className="card-button-div card-delete-div"><img src="/delete-icon.svg" /></div>
+              <div role="button" onClick={() => handleUpdate(c)} className="card-button-div card-edit-div"><img src="/edit-icon.svg" alt="edit-icon" role="button" /></div>
+              <div role="button" onClick={() => handleDelete(c)} className="card-button-div card-delete-div"><img src="/delete-icon.svg" alt="delete-icon" role="button" /></div>
             </span>
           </div>
           <div className="card-name-row">
@@ -25,7 +25,7 @@ const ContactCard = ({ list, handleView, handleUpdate, handleDelete }) => {
             <div className="card-labels">Contact:</div>
             <div>{c.contact}</div>
           </div>
-          <div role="button" onClick={() => handleView(c)} className="card-view-div">View</div>          
+          <button onClick={() => handleView(c)} className="card-view-div">View</button>          
         </div>
       ))}
     </div>

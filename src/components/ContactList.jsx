@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { useEffect } from "react"
 import { clearSelectedContact, deleteContact } from "../reducer/contactReducer"
 import { setName, setContact, setEmail, setCta, reset, setIdForUpdate, CTA } from "../reducer/formReducer"
-import NetworkError from "./NetworkError"
+import Error from "./Error"
 import Spinner from "./Spinner"
 import { setToDisplay, setContactToDelete, RESULT, resetContactToDeleteAndResult } from "../reducer/confirmationReducer"
 import { resetFormErrorMessage } from "../reducer/formErrorMessageReducer"
@@ -71,7 +71,7 @@ const ContactList = () => {
     navigate(`/contact-detail/${contact.id}`)
   }
 
-  if (error === "Network Error") return <NetworkError error={error} />
+  if (error) return <Error error={error} />
 
   if (isLoading) return <Spinner />
 

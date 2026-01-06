@@ -10,13 +10,13 @@ const initialState = {
 }
 
 // to delete - to test out spinner only
-//const delay = ms => new Promise(res => setTimeout(res, ms))
+// const delay = ms => new Promise(res => setTimeout(res, ms))
 
 export const fetchContactList = createAsyncThunk(
   'contact/fetchContactList',
   async (_, { rejectWithValue }) => {
     try {
-      //await delay(1000) // to delete - to test out spinner only
+     // await delay(3000) // to delete - to test out spinner only
       return await getContacts()
     } catch (error) {
       return rejectWithValue(error?.message || "Couldn't load contact list.")

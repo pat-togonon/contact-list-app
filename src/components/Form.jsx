@@ -21,11 +21,11 @@ const Form = () => {
 
   const isValidEmail = (email) => {
     const pattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/
-    return pattern.test(email)
+    return pattern.test(email.replace(/[s]/g, ""))
   }
 
   const isValidContact = (phone) => {
-    const landlinePattern = /^(\(\d{1,3}\)|\d{1,3})[-\s]\d{3,4}-?\d{4}$/
+    const landlinePattern = /^(?:\(?\d{1,3}\)?[\s-]?)?\d{3,4}-?\d{4}$/
     const mobilePattern = /^(?:\+63|63|0)9\d{9}$/
     return landlinePattern.test(phone) || mobilePattern.test(phone)
   }
@@ -56,6 +56,7 @@ const Form = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault()
+    dispatch(setIsOn(false))
     dispatch(setToDisplay(false))  
     if (!isValidName(name)) dispatch(setHasValidName(false))
     if (!isValidEmail(email)) dispatch(setHasValidEmail(false))
@@ -146,15 +147,15 @@ const Form = () => {
   return (
     <section id="form-section">
       <form onSubmit={handleFormSubmit}>
-        <p className="input-labels">Name</p>
-        <input type="text" value={name} onChange={handleName} onBlur={validateName} placeholder="Enter your name"></input>
-        <p style={nameErrorStyle} className="errorParagraphs">Name must have at least 3 letters and no special characters.</p>
-        <p className="input-labels">Email</p>
-        <input type="email" value={email} onChange={handleEmail} onBlur={validateEmail} placeholder="Enter your email"></input>
-        <p style={emailErrorStyle} className="errorParagraphs">Please input a valid email address. Example: johndoe@domain.com</p>
-        <p className="input-labels">Contact</p>
-        <input type="text" value={contact} onChange={handleContact} onBlur={validateContact} placeholder="Enter your mobile or landline number"></input>
-        <p style={contactErrorStyle} className="errorParagraphs">Please enter a valid mobile (e.g. 09XXXXXXXXX) or landline number (e.g. 02 XXXX-XXXX).</p>
+        <label htmlFor="name" className="input-labels">Name</label>
+        <input id="name" type="text" value={name} onChange={handleName} onBlur={validateName} placeholder="Enter your name" autoComplete="name"></input>
+        <p style={nameErrorStyle} className="errorParagraphs">Name must have at least 3 letters.</p>
+        <label htmlFor="email" className="input-labels">Email</label>
+        <input id="email" type="email" value={email} onChange={handleEmail} onBlur={validateEmail} placeholder="Enter your email" autoComplete="email"></input>
+        <p style={emailErrorStyle} className="errorParagraphs">Enter a valid email address. Example: johndoe@domain.com</p>
+        <label htmlFor="contact" className="input-labels">Contact</label>
+        <input id="contact" type="text" value={contact} onChange={handleContact} onBlur={validateContact} placeholder="Enter your mobile or landline number"></input>
+        <p style={contactErrorStyle} className="errorParagraphs">Enter a valid mobile (09XXXXXXXXX) or landline (area code + 7–8 digits). </p>
         <div>
           <button type="submit" id="form-button">{cta}</button>
           {(name || email|| contact) && <button type="button" onClick={handleReset} id="form-reset-button">Clear form</button>}

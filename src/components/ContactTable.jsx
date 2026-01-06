@@ -26,8 +26,8 @@ const ContactTable = ({ list, handleView, handleUpdate, handleDelete }) => {
               <td>{c.contact}</td>
               <td className="table-buttons-cell">
                 <button type="button" onClick={() => handleView(c)} className="contact-buttons">View</button>
-                <button type="button" onClick={() => handleUpdate(c)} className="contact-buttons">Update</button>
-                <button type="button" onClick={() => handleDelete(c)} className="contact-buttons">Delete</button>
+                <button type="button" onClick={() => handleUpdate(c)} className="contact-buttons update-button">Update</button>
+                <button type="button" onClick={() => handleDelete(c)} className="contact-buttons delete-button">Delete</button>
               </td>
             </tr>
             

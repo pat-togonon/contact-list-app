@@ -24,7 +24,7 @@ const ModalConfirmation = () => {
   return (
     <div style={confirmationStyle} className="confirmation-modal">
       <p>Are you sure you want to delete your contact {contactToDelete?.name} ({contactToDelete?.contact})?</p>
-      <button type="button" onClick={handleDelete} className="modal-confirmation-buttons">{RESULT.DELETE}</button>
+      <button type="button" onClick={handleDelete} className="modal-confirmation-buttons delete-button">{RESULT.DELETE}</button>
       <button type="button" onClick={handleCancel} className="modal-confirmation-buttons modal-cancel-button">{RESULT.CANCEL}</button>
     </div>
   )
